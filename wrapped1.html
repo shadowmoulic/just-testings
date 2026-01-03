@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our 2025 Wrapped</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Dancing+Script:wght@700&display=swap');
+
+        /* --- BASIC SETUP --- */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #121212; /* Spotify-like Dark Background */
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+        }
+
+        /* --- FLOATING HEARTS ANIMATION --- */
+        .heart-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            bottom: -10vh;
+            color: #e91e63;
+            opacity: 0;
+            animation: floatUp 6s ease-in-out infinite;
+            font-size: 2rem;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(0.5); opacity: 0; }
+            20% { opacity: 0.8; }
+            100% { transform: translateY(-120vh) scale(1.2) rotate(20deg); opacity: 0; }
+        }
+
+        /* --- SLIDE CONTAINER --- */
+        #app {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        /* --- INDIVIDUAL SLIDES --- */
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            opacity: 0;
+            transform: translateX(100%); /* Start off-screen right */
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease;
+            pointer-events: none; /* Prevent clicking non-active slides */
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: auto;
+        }
+
+        .slide.exit {
+            transform: translateX(-100%); /* Slide out to left */
+            opacity: 0;
+        }
+
+        /* --- TYPOGRAPHY & STYLING --- */
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            background: linear-gradient(45deg, #ff4081, #ff9100);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fce4ec;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            max-width: 600px;
+            color: #b0bec5;
+        }
+
+        .big-stat {
+            font-size: 5rem;
+            font-weight: 900;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(255, 64, 129, 0.5);
+        }
+
+        /* --- THE SECRET LETTER STYLING --- */
+        .letter-content {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: #ff52c8; /* Gold text */
+            text-align: left;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 90%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* --- CLICK INDICATOR --- */
+        .tap-hint {
+            position: absolute;
+            bottom: 30px;
+            font-size: 0.9rem;
+            opacity: 0.6;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+            100% { opacity: 0.3; }
+        }
+
+    </style>
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+<text y='0.9em' font-size='90'>❤️</text>
+</svg>">
+
+</head>
+<body>
+
+    <div class="heart-container" id="heartContainer"></div>
+
+    <div id="app" onclick="nextSlide()">
+        
+        <div class="slide active">
+            <h2>Welcome to</h2>
+            <h1>OUR<br>2025<br>WRAPPED</h1>
+            <p>Tap to start the journey...</p>
+        </div>
+
+        <div class="slide">
+            <h2>We spent</h2>
+            <div class="big-stat">365</div>
+            <h2>Days Loving Each Other</h2>
+            <p>(And I loved every single second of it)</p>
+        </div>
+
+        <div class="slide">
+            <h2>This year</h2>
+            <div class="big-stat">213</div>
+            <h2>"ILY"s were exchanged!</h2>
+            <p>Every single of them made my day, my love.</p>
+        </div>
+
+        <div class="slide">
+            <h2>Top Theme of 2025:</h2>
+<h1>DEEP<br>CONNECTION</h1>
+<p>
+From figuring out life, getting into our colleges,<br>
+to choosing each other every single day.
+</p>
+<p><i>The best part wasn’t the chaos — it was us.</i></p>
+
+        </div>
+
+        <div class="slide">
+            <h2>My Favorite Feature</h2>
+            <div class="big-stat">YOU</div>
+            <p>Your smile was the #1 tracked event in my heart this year.</p>
+        </div>
+
+<div class="slide">
+    <h2>This year, in one frame</h2>
+    <img 
+      src="https://i.ibb.co/RnWw3v4/IMG-20251224-180550.jpg" 
+      alt="Us in 2025"
+      style="
+        max-width: 280px;
+        border-radius: 20px;
+        margin: 20px 0;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      "
+    />
+    <p>
+      Growth, chaos, dreams —
+      and always finding our way back to each other.
+    </p>
+</div>
+
+<div class="slide">
+    <h2>What I’m Most Proud Of</h2>
+    <p>
+      You chasing your dreams.<br>
+      Us getting into our colleges.<br><br>
+      And somehow still building things together —
+      even when life got heavy.
+    </p>
+    <p><i>You inspire me more than you know.</i></p>
+</div>
+
+<div class="slide">
+    <h2>2025 Wins (Powered by You)</h2>
+    <p>
+      Sex & Romance crossed 2.1k readers.<br>
+      YouTube hit 2.5k subs.<br><br>
+      But the real win?
+      Doing it while feeling supported, understood,
+      and never alone.
+    </p>
+</div>
+
+
+        <div class="slide">
+            <h2>One last thing...</h2>
+            <div class="letter-content">
+                "Dearest wifey,<br><br>
+                2025 was amazing because you were by my side. <br><br>
+                I thank God every day for bringing you into my life,
+and even more for you choosing to stay,
+to grow, to believe, and to stand beside me when things were uncertain.<br>
+Aro onek bochor dhore amra ek sathe thakbo.
+Prottek bochor, prottek din, prottek moment e —
+ami aro beshi bhalobashi tomake.<br><br> I can't help falling in love with you again and again, every single day.<br><br>
+                Thank you for choosing me — even when I was building, breaking, dreaming, and rebuilding again.<br><br>
+                2026 will be even better. Dekhenio ;) and amader sob bhalo hobe.<br><br>
+                I love youuuuuuuuuuuuuu infinityyyyyyy."
+            </div>
+            <p style="margin-top: 20px; font-size: 0.8rem;">(Tap to replay)</p>
+        </div>
+
+        <div class="tap-hint">Tap screen to continue</div>
+    </div>
+
+    <audio id="bgMusic" preload="auto" loop>
+    <source src="romantic.mp3" type="audio/mpeg">
+</audio>
+
+    <script>
+    // ---------------- HEART GENERATOR ----------------
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.innerHTML = '❤';
+
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = Math.random() * 3 + 4 + 's';
+        heart.style.fontSize = Math.random() * 20 + 20 + 'px';
+
+        document.getElementById('heartContainer').appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 7000);
+    }
+
+    setInterval(createHeart, 300);
+
+    // ---------------- MUSIC CONTROL ----------------
+    const music = document.getElementById("bgMusic");
+    let musicStarted = false;
+
+    function fadeInMusic() {
+        let volume = 0;
+        music.volume = 0;
+        music.play().catch(() => {});
+        
+        const fade = setInterval(() => {
+            if (volume < 0.15) {
+                volume += 0.01;
+                music.volume = volume;
+            } else {
+                clearInterval(fade);
+            }
+        }, 200);
+    }
+
+    function startMusicOnce() {
+        if (!musicStarted) {
+            fadeInMusic();
+            musicStarted = true;
+        }
+    }
+
+    // ---------------- SLIDE LOGIC ----------------
+    let currentSlideIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    const tapHint = document.querySelector('.tap-hint');
+
+    function nextSlide() {
+        // Start music on FIRST interaction (mobile-safe)
+        startMusicOnce();
+
+        // Optional tiny vibration (mobile only)
+        if (navigator.vibrate) {
+            navigator.vibrate(10);
+        }
+
+        slides[currentSlideIndex].classList.remove('active');
+        slides[currentSlideIndex].classList.add('exit');
+
+        currentSlideIndex++;
+
+        // Pause on last slide emotionally
+        if (currentSlideIndex === slides.length - 1) {
+            tapHint.innerText = "Take your time ❤️ Tap once more to replay";
+        }
+
+        // Replay logic
+        if (currentSlideIndex >= slides.length) {
+            slides.forEach(slide => {
+                slide.classList.remove('exit');
+                slide.classList.remove('active');
+            });
+
+            // Reset music on replay
+            music.pause();
+            music.currentTime = 0;
+            musicStarted = false;
+
+            tapHint.innerText = "Tap screen to continue";
+            currentSlideIndex = 0;
+        }
+
+        setTimeout(() => {
+            slides[currentSlideIndex].classList.add('active');
+        }, 50);
+    }
+</script>
+
+</body>
+</html>
