@@ -142,10 +142,22 @@
         text-shadow: 0 0 20px rgba(255, 64, 129, 0.5);
     }
 
-    img {
-        max-width: 80% !important; /* Prevents image from overflowing width */
+/* Specific styling for the image inside the slide */
+    .slide-image {
+        max-width: 280px; /* Keeps it small like in your example */
+        width: 100%;      /* Makes it responsive up to 280px */
         height: auto;
+        border-radius: 20px;
+        margin: 20px 0;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.6);
         object-fit: cover;
+    }
+
+    /* Optional: Make it slightly smaller on very small phones */
+    @media (max-width: 600px) {
+        .slide-image {
+            max-width: 70%; 
+        }
     }
 
     /* --- LETTER STYLING --- */
@@ -268,8 +280,7 @@
 
         <div class="slide">
             <h2>This year, in one frame</h2>
-            <img src="img-one-bite.jpg" alt="Us in 2025" 
-                 style="max-width: 280px; border-radius: 20px; margin: 20px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.6);">
+<img src="img-one-bite.jpg" alt="Us in 2025" class="slide-image">
             <p>Growth, chaos, dreams — and always finding our way back to each other.</p>
         </div>
 
@@ -428,5 +439,4 @@
     </script>
 </body>
 </html>
-
 
